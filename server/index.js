@@ -18,5 +18,5 @@ let {
 app.delete(`/api/players/:id`, deletePlayer)
 app.post(`/api/players`, createPlayer)
 
-let { PORT } = process.env
+let PORT = 4433
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))

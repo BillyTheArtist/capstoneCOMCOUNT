@@ -1,4 +1,4 @@
-// let players = require('./db.json')
+let players = require('./db.json')
 lifeTotal = 40
 commanderTax = 0
 infectDamage = 0
@@ -9,8 +9,8 @@ module.exports = {
 
     deletePlayer: (req, res) => {
         let deleteId = req.params.id
-        let index = movies.findIndex(element => element.id === +deleteId)
-        movies.splice(index, 1)
+        let index = players.findIndex(element => element.id === +deleteId)
+        players.splice(index, 1)
         res.status(200).send(players)
     },
 
@@ -41,6 +41,6 @@ module.exports = {
                 stormCount
             }
             players.push(newPlayer)
-            res.status(200).send(player)
+            res.status(200).send(players)
     },
 }

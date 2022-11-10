@@ -1,14 +1,14 @@
 let playersContainer = document.querySelector('#players-container')
 let form = document.querySelector('form')
+let baseURL = `http://localhost:4433`
 
-let baseURL = `http://localhost:4433/`
+
 
 let playersCallback = ({ data: players }) => displayPlayers(players)
 let errCallback = err => console.log(err)
 
-
-let createPlayer = body => axios.post(baseURL, body).then(playersCallback).catch(errCallback)
-let deletePlayer = id => axios.delete(`${baseURL}/${id}`).then(playersCallback).catch(errCallback)
+let createPlayer = body => axios.post(`${baseURL}/api/players/`, body).then(playersCallback).catch(errCallback)
+let deletePlayer = id => axios.delete(`${baseURL}/api/players/:${id}`).then(playersCallback).catch(errCallback)
 
 
 function submitHandler(e) {
