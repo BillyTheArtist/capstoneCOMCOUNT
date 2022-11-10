@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMCOUNT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>COMCOUNT</header>
+    <main>
+
+<form id="commander-form">
+    <!--PLAYER NAME INPUT-->
+    <input type="text" id="player-name" placeholder="What's your name?"/>
+    <!--COMMANDER NAME INPUT-->
+    <input type="text" id="commander-name" placeholder="Who's your commander?"/>
+     <!--COMMANDER IMAGE URL-->
+     <input type="text" id="img-commander" placeholder="Image URL for commander"/>
+    <!--PARTNER NAME INPUT // ALLOW NULL-->
+    <input type="text" id="partner-name" placeholder="Partner name(if any)?"/>
+    <!--PARTNER IMAGE URL // ALLOW NULL-->
+    <input type="text" id="img-partner" placeholder="Image URL for partner"/>
+    <!--COMPANION NAME INPUT // ALLOW NULL-->
+    <input type="text" id="companion-name" placeholder="Companion name(if any)?"/>
+    <!--COMPANION IMAGE URL // ALLOW NULL-->
+    <input type="text" id="img-companion" placeholder="Image URL for companion"/>
+    <!--ADD PLAYER CARD BUTTON-->
+    <button id="add-player-button">add player</button>
+</form>
+
+<section id="players-container"></section>
+
+    </main>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
