@@ -11,12 +11,15 @@ app.use(express.json())
 
 let {
     deletePlayer,
-    createPlayer
+    createPlayer,
+    updatePlayer
 } = require('./controller')
 
 
 app.delete(`/api/players/:id`, deletePlayer)
 app.post(`/api/players`, createPlayer)
+app.put(`/api/players/:id`, updatePlayer)
+
 
 let PORT = 4433
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))

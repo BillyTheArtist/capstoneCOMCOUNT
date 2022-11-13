@@ -1,8 +1,5 @@
 let players = require('./db.json')
-lifeTotal = 40
-commanderTax = 0
-infectDamage = 0
-stormCount = 0
+let Magic = require('mtgsdk-ts')
 
 
 module.exports = {
@@ -14,8 +11,20 @@ module.exports = {
         res.status(200).send(players)
     },
 
-    createPlayer: (req, res) => {
+    createPlayer: async(req, res) => {
         let { name, commanderName, commanderURL, partnerName, partnerURL, companionName, companionURL, lifeTotal, commanderTax, infectDamage, stormCount} = req.body
+        let [response] = await Magic.Cards.where({name: commanderName, supertypes: 'Legendary'})
+        let partnerResponse
+        let companionResponse
+        
+
+        if (partnerName) {
+            [partnerResponse] = await Magic.Cards.where({name: partnerName, supertypes: 'Legendary'})  
+        }
+
+        if (companionName) {
+            [companionResponse] = await Magic.Cards.where({name: companionName, supertypes: 'Legendary'})  
+        }
 
         let greatestId = -1
         for (let i = 0; i < players.length; i++) {
@@ -24,17 +33,20 @@ module.exports = {
             }
         }
 
-            let nextId = greatestId + 1
+console.log(partnerResponse)
+console.log(companionResponse)
 
+            let nextId = greatestId + 1
+            
             let newPlayer = {
                 id: nextId,
                 name,
-                commanderName,
-                commanderURL,
-                partnerName,
-                partnerURL,
-                companionName,
-                companionURL,
+                commanderName: response.name,
+                commanderURL: response.imageUrl,
+                partnerName: partnerResponse.name,
+                partnerURL: partnerResponse.imageUrl,
+                companionName: companionResponse.name,
+                companionURL: companionResponse.imageUrl,
                 lifeTotal,
                 commanderTax,
                 infectDamage,
@@ -43,4 +55,21 @@ module.exports = {
             players.push(newPlayer)
             res.status(200).send(players)
     },
+    updatePlayer: (req, res) => {
+        let { id } = req.params
+        let { type, numberType } = req.body
+        let index = players.findIndex(elem => +elem.id === +id)
+        
+ 
+
+        if (type === 'plus') {
+            players[index][numberType]++
+            res.status(200).send(players)
+        } else if (type === 'minus') {
+            players[index][numberType]--
+            res.status(200).send(players)
+        } else {
+            res.sendStatus(400)
+        }
+    }
 }
