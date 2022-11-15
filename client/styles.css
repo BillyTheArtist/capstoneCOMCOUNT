@@ -38,3 +38,61 @@ main {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+#player-name {
+    position: absolute;
+    left: 40px;
+    top: 90px;
+    border-radius: 6px;
+    height: 26px;
+    text-align: center;
+}
+
+#commander-name {
+    position: absolute;
+    left: 40px;
+    top: 130px;
+    border-radius: 6px;
+    height: 26px;
+    text-align: center;
+}
+
+#partner-name {
+    position: absolute;
+    left: 40px;
+    top: 170px;
+    border-radius: 6px;
+    height: 26px;
+    text-align: center;
+}
+
+#companion-name {
+    position: absolute;
+    left: 40px;
+    top: 210px;
+    border-radius: 6px;
+    height: 26px;
+    text-align: center;
+}
+
+#add-player-button {
+    position: absolute;
+    left: 84px;
+    top: 250px;
+    text-align: center;
+}
+
+.img-commander {
+    height: 200px;
+    width: auto;
+}
+
+.img-partner {
+    height: 200px;
+    width: auto;    
+}
+
+.img-companion {
+    height: 200px;
+    width: auto;    
+}
