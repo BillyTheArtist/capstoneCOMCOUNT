@@ -12,7 +12,7 @@ header {
     display: flex; 
     justify-content: center; 
     align-items: center;
-    color: #ffc6f7;
+    color: #5b59b8;
 }
 
 main {
@@ -95,10 +95,12 @@ main {
 #form-box {
     position: absolute;
     left: 25px;
-    top: 20px;
+    top: 70px;
     width: 200px;
-    height: 300px;
-    background-color: #5f5dc2;
+    height: 230px;
+    border: #d4d4ff;
+    border-style: groove;
+    background-image: linear-gradient(to right, #5f5dc2, #333272);
     opacity: 0.9;
     border-radius: 10px;
     z-index: 0;
@@ -109,11 +111,11 @@ main {
 }
 
 @keyframes form-bobble {
-    0%   {top: 20px;left: 25px}
-    25%  {top: 23px;left: 22px}
-    50%  {top: 20px;left: 25px}
-    75%  {top: 23px;left: 28px}
-    100% {top: 20px;left: 25px}
+    0%   {top: 70px;left: 25px}
+    25%  {top: 73px;left: 22px}
+    50%  {top: 70px;left: 25px}
+    75%  {top: 73px;left: 28px}
+    100% {top: 70px;left: 25px}
 }
 
 #add-player-button {

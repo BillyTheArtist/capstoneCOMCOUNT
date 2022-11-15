@@ -51,12 +51,14 @@ function createPlayerCard(player) {
     <p class="player-name">${player.name}</p>
     <p class="commander-name">${player.commanderName}</p>
     <img alt="img-commander" src=${player.commanderURL} class="img-commander"/>
-    <p class="partner-name">${player.partnerName}</p>
-    <img alt='img-partner' src=${player.partnerURL} class="img-partner"/>
-    <p class='companion-name'>${player.companionName}</p>
-    <img alt='img-companion' src=${player.companionURL} class="img-companion"/>
 
-<div class="lifeTotal-container">
+
+    <p class="partner-name">${player.partnerName}</p>`+
+    player.partnerURL ? `<img alt='img-partner' src=${player.partnerURL} class="img-partner"/>` : '' +
+    `<p class='companion-name'>${player.companionName}</p>`
+    player.companionURL ? `<img alt='img-companion' src=${player.companionURL} class="img-companion"/>` : '' +
+
+`<div class="lifeTotal-container">
         
     <p class='lifeTotal'>Life: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','lifeTotal')">-</button>${player.lifeTotal}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','lifeTotal')">+</button></p>
         
@@ -93,6 +95,7 @@ function createPlayerCard(player) {
 function displayPlayers(arr) {
     playersContainer.innerHTML = ``
     for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])    
         createPlayerCard(arr[i])
     }
 }

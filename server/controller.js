@@ -19,16 +19,12 @@ module.exports = {
         
 
         if (partnerName) {
-            [partnerResponse] = await Magic.Cards.where({name: partnerName, supertypes: 'Legendary'})  
-        } else if (partnerResponse.name === '') {
-            console.log('blank')
-        }
+            partnerResponse = await Magic.Cards.where({name: partnerName, supertypes: 'Legendary'})  
+        } 
 
         if (companionName) {
-            [companionResponse] = await Magic.Cards.where({name: companionName, supertypes: 'Legendary'})  
-        } else if (companionResponse.name === '') {
-            console.log('blank')
-        }
+            companionResponse = await Magic.Cards.where({name: companionName, supertypes: 'Legendary'})  
+        } 
 
         let greatestId = -1
         for (let i = 0; i < players.length; i++) {
@@ -37,8 +33,7 @@ module.exports = {
             }
         }
 
-console.log(partnerResponse)
-console.log(companionResponse)
+
 
             let nextId = greatestId + 1
             
@@ -47,10 +42,10 @@ console.log(companionResponse)
                 name,
                 commanderName: response.name,
                 commanderURL: response.imageUrl,
-                partnerName: partnerResponse.name,
-                partnerURL: partnerResponse.imageUrl,
-                companionName: companionResponse.name,
-                companionURL: companionResponse.imageUrl,
+                partnerName: partnerResponse ? partnerResponse.name : null,
+                partnerURL: partnerResponse ? partnerResponse.imageUrl : null,
+                companionName: companionResponse ? companionResponse.name : null,
+                companionURL: companionResponse ? companionResponse.imageUrl: null,
                 lifeTotal,
                 commanderTax,
                 infectDamage,
