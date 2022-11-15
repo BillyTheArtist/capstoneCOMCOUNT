@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #232323;
+    background-image: linear-gradient(to right, rgb(62, 61, 112), black);
 }
 
 header {
@@ -29,7 +29,7 @@ main {
 
 .player-card {
     background-color: #860090;
-    width: 200px;
+    width: 440px;
     margin: 20px; 
     display: flex;
     flex-direction: column;
@@ -46,6 +46,9 @@ main {
     border-radius: 6px;
     height: 26px;
     text-align: center;
+    background-color: #18172b;
+    font-family: Teko;
+    font-size: 18px;
 }
 
 #commander-name {
@@ -55,6 +58,9 @@ main {
     border-radius: 6px;
     height: 26px;
     text-align: center;
+    background-color: #18172b;
+    font-family: Teko;
+    font-size: 18px;
 }
 
 #partner-name {
@@ -64,6 +70,9 @@ main {
     border-radius: 6px;
     height: 26px;
     text-align: center;
+    background-color: #18172b;
+    font-family: Teko;
+    font-size: 18px;
 }
 
 #companion-name {
@@ -73,26 +82,90 @@ main {
     border-radius: 6px;
     height: 26px;
     text-align: center;
+    background-color: #18172b;
+    font-family: Teko;
+    font-size: 18px;
+}
+
+::placeholder {
+    color: #8382b9;
+    opacity: 0.9;
+}
+
+#form-box {
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    width: 200px;
+    height: 300px;
+    background-color: #5f5dc2;
+    opacity: 0.9;
+    border-radius: 10px;
+    z-index: 0;
+    animation: form-bobble;
+    animation-delay: 4s;
+    animation-duration: 1s;
+    animation-iteration-count: 3;
+}
+
+@keyframes form-bobble {
+    0%   {top: 20px;left: 25px}
+    25%  {top: 23px;left: 22px}
+    50%  {top: 20px;left: 25px}
+    75%  {top: 23px;left: 28px}
+    100% {top: 20px;left: 25px}
 }
 
 #add-player-button {
     position: absolute;
     left: 84px;
     top: 250px;
+    height: 30px;
+    width: 80px;
+    font-family: Teko;
+    font-size: 16px;
+    font-weight: 600;
+    border: transparent;
+    border-radius: 8px;
+    background: -webkit-linear-gradient(#d4d4ff, #b7b6f5, #8d7fce, #2f2157);
     text-align: center;
+    animation-name: add-Glow;
+    animation-duration: 3s;
+    animation-iteration-count: 9;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 14px 0 rgba(0, 0, 0, 0.19);
+}
+
+@keyframes add-Glow {
+    0%   {filter: drop-shadow(0px 0px 4px #762dff);}
+    25%  {filter: drop-shadow(0px 0px 8px #ca6dff);}
+    50%  {filter: drop-shadow(0px 0px 4px #762dff);}
+    75%  {filter: drop-shadow(0px 0px 8px #ca6dff);}
+    100% {filter: drop-shadow(0px 0px 4px #762dff);}
+}
+
+#minus-button {
+    float: left;
+}
+
+#plus-button {
+    float: right;
 }
 
 .img-commander {
     height: 200px;
     width: auto;
+    float: left;
 }
 
 .img-partner {
     height: 200px;
-    width: auto;    
+    width: auto;
+    float: unset;    
 }
 
 .img-companion {
     height: 200px;
-    width: auto;    
+    width: auto;
+    float: right;    
 }
+

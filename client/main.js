@@ -18,15 +18,9 @@ function submitHandler(e) {
 
     let name = document.querySelector('#player-name')
     let commanderName = document.querySelector('#commander-name')
-    let commanderURL = document.querySelector('#img-commander')
     let partnerName = document.querySelector('#partner-name')
-    let partnerURL = document.querySelector('#img-partner')
     let companionName = document.querySelector('#companion-name')
-    let companionURL = document.querySelector('#img-companion')
-    let lifeTotal = document.querySelector('#lifeTotal')
-    let commanderTax = document.querySelector('#commander-tax')
-    let infectDamage = document.querySelector('#infect-damage')
-    let stormCount = document.querySelector('#storm-count')
+
 
  
 
@@ -63,28 +57,29 @@ function createPlayerCard(player) {
     <img alt='img-companion' src=${player.companionURL} class="img-companion"/>
 
 <div class="lifeTotal-container">
-        <button onclick="updatePlayer(${player.id}, 'minus','lifeTotal')">-</button>
-    <p class='lifeTotal'>Life: ${player.lifeTotal}</p>
-        <button onclick="updatePlayer(${player.id}, 'plus','lifeTotal')">+</button>
+        
+    <p class='lifeTotal'>Life: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','lifeTotal')">-</button>${player.lifeTotal}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','lifeTotal')">+</button></p>
+        
 </div>
 
 <div class="commanderTax-container">
-        <button onclick="updatePlayer(${player.id}, 'minus','commanderTax')">-</button>    
-<p class='commander-tax'>Tax: ${player.commanderTax}</p>
-<button onclick="updatePlayer(${player.id}, 'plus','commanderTax')">+</button>
-</div>  
+           
+<p class='commander-tax'>Tax: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','commanderTax')">-</button>  ${player.commanderTax}  <button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','commanderTax')">+</button>
+</div></p>
+  
 
 <div class="infectDamage-container">
-        <button onclick="updatePlayer(${player.id}, 'minus','infectDamage')">-</button>   
-<p class='infect-damage'>Poison: ${player.infectDamage}</p>
-<button onclick="updatePlayer(${player.id}, 'plus','infectDamage')">+</button>
+           
+<p class='infect-damage'>Poison: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','infectDamage')">-</button>${player.infectDamage}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','infectDamage')">+</button></p>
+
 </div>  
 
 <div class="stormCount-container">
-        <button onclick="updatePlayer(${player.id}, 'minus','stormCount')">-</button> 
-<p class='storm-count'>Storm count: ${player.stormCount}</p>
-<button onclick="updatePlayer(${player.id}, 'plus','stormCount')">+</button>
-</div> 
+
+        
+<p class='storm-count'>Storm count: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','stormCount')">-</button> ${player.stormCount}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','stormCount')">+</button>
+</div></p>
+ 
 
 
     <button onclick="deletePlayer(${player.id})">delete</button>

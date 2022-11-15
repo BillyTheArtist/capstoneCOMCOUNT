@@ -12,7 +12,7 @@ module.exports = {
     },
 
     createPlayer: async(req, res) => {
-        let { name, commanderName, commanderURL, partnerName, partnerURL, companionName, companionURL, lifeTotal, commanderTax, infectDamage, stormCount} = req.body
+        let { name, commanderName, partnerName, companionName, lifeTotal, commanderTax, infectDamage, stormCount} = req.body
         let [response] = await Magic.Cards.where({name: commanderName, supertypes: 'Legendary'})
         let partnerResponse
         let companionResponse
@@ -20,10 +20,14 @@ module.exports = {
 
         if (partnerName) {
             [partnerResponse] = await Magic.Cards.where({name: partnerName, supertypes: 'Legendary'})  
+        } else if (partnerResponse.name === '') {
+            console.log('blank')
         }
 
         if (companionName) {
             [companionResponse] = await Magic.Cards.where({name: companionName, supertypes: 'Legendary'})  
+        } else if (companionResponse.name === '') {
+            console.log('blank')
         }
 
         let greatestId = -1
