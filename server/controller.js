@@ -19,11 +19,11 @@ module.exports = {
         
 
         if (partnerName) {
-            partnerResponse = await Magic.Cards.where({name: partnerName, supertypes: 'Legendary'})  
+            [partnerResponse] = await Magic.Cards.where({name: partnerName, supertypes: 'Legendary'})  
         } 
 
         if (companionName) {
-            companionResponse = await Magic.Cards.where({name: companionName, supertypes: 'Legendary'})  
+            [companionResponse] = await Magic.Cards.where({name: companionName, supertypes: 'Legendary'})  
         } 
 
         let greatestId = -1

@@ -54,9 +54,9 @@ function createPlayerCard(player) {
 
 
     <p class="partner-name">${player.partnerName}</p>`+
-    player.partnerURL ? `<img alt='img-partner' src=${player.partnerURL} class="img-partner"/>` : '' +
-    `<p class='companion-name'>${player.companionName}</p>`
-    player.companionURL ? `<img alt='img-companion' src=${player.companionURL} class="img-companion"/>` : '' +
+    (player.partnerURL ? `<img alt='img-partner' src=${player.partnerURL} class="img-partner"/>` : '') +
+    `<p class='companion-name'>${player.companionName}</p>`+
+    (player.companionURL ? `<img alt='img-companion' src=${player.companionURL} class="img-companion"/>` : '') +
 
 `<div class="lifeTotal-container">
         
