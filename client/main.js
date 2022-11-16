@@ -49,37 +49,42 @@ function createPlayerCard(player) {
 
     playerCard.innerHTML = `
     <p class="player-name">${player.name}</p>
-    <p class="commander-name">${player.commanderName}</p>
-    <img alt="img-commander" src=${player.commanderURL} class="img-commander"/>
+
+    <img alt="img-commander" src=${player.commanderURL} class="img-commander"/>`+
 
 
-    <p class="partner-name">${player.partnerName}</p>`+
+
+
     (player.partnerURL ? `<img alt='img-partner' src=${player.partnerURL} class="img-partner"/>` : '') +
-    `<p class='companion-name'>${player.companionName}</p>`+
+
+    (player.partnerCompanion ? `<p class='companion-name'>${player.companionName}</p>`: '')+
+    
     (player.companionURL ? `<img alt='img-companion' src=${player.companionURL} class="img-companion"/>` : '') +
 
-`<div class="lifeTotal-container">
-        
-    <p class='lifeTotal'>Life: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','lifeTotal')">-</button>${player.lifeTotal}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','lifeTotal')">+</button></p>
-        
-</div>
+`
 
 <div class="commanderTax-container">
            
-<p class='commander-tax'>Tax: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','commanderTax')">-</button>  ${player.commanderTax}  <button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','commanderTax')">+</button>
+<p class='commander-tax'>Tax : <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','commanderTax')">-</button>  ${player.commanderTax}  <button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','commanderTax')">+</button>
 </div></p>
-  
+
+<div class="lifeTotal-container">
+        
+    <p class='lifeTotal'>Life : <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','lifeTotal')">-</button>${player.lifeTotal}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','lifeTotal')">+</button></p>
+        
+</div>
+
 
 <div class="infectDamage-container">
            
-<p class='infect-damage'>Poison: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','infectDamage')">-</button>${player.infectDamage}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','infectDamage')">+</button></p>
+<p class='infect-damage'>Poison : <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','infectDamage')">-</button>${player.infectDamage}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','infectDamage')">+</button></p>
 
 </div>  
 
 <div class="stormCount-container">
 
         
-<p class='storm-count'>Storm count: <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','stormCount')">-</button> ${player.stormCount}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','stormCount')">+</button>
+<p class='storm-count'>Storm Count : <button id="minus-button" onclick="updatePlayer(${player.id}, 'minus','stormCount')">-</button> ${player.stormCount}<button id="plus-button" onclick="updatePlayer(${player.id}, 'plus','stormCount')">+</button>
 </div></p>
  
 
