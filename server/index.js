@@ -7,8 +7,10 @@ require("dotenv").config()
 app.use(cors())
 app.use(express.json())
 //---MIDDLEWARE---
-let {home} = require("./pageFolder/pageCtrl")
+let {home, styles, js} = require("./pageFolder/pageCtrl")
 app.get('/', home)
+app.get('/css', styles)
+app.get('/js', js)
 
 let {
     deletePlayer,
