@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json())
 //---MIDDLEWARE---
 let {home} = require("./pageFolder/pageCtrl")
-app.get("/", home)
+app.get('/', home)
 
 let {
     deletePlayer,
