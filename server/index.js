@@ -1,13 +1,14 @@
 let express = require('express')
 let cors = require('cors')
 let app = express()
+
+require("dotenv").config()
 //---MIDDLEWARE---
 app.use(cors())
 app.use(express.json())
-// let players = require('./db.json')
 //---MIDDLEWARE---
-
-
+let {home} = require("./pageFolder/pageCtrl")
+app.get("/", home)
 
 let {
     deletePlayer,
@@ -15,11 +16,9 @@ let {
     updatePlayer
 } = require('./controller')
 
-
 app.delete(`/api/players/:id`, deletePlayer)
 app.post(`/api/players`, createPlayer)
 app.put(`/api/players/:id`, updatePlayer)
 
-
-let PORT = 4433
+const { PORT } = process.env
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
